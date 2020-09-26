@@ -1,0 +1,98 @@
+body{
+  background-image: url('wallp.jpg');
+}
+h1{
+  color:#444141 ;
+  background-color: #009879;
+}
+table{
+    width: 100%;
+    font-style: inherit;
+}
+table th{
+    height: 55px;
+    width: 130px;
+    background-color: #009879;
+    color: rgb(63, 54, 54);
+    position: relative;
+    border: none;
+    font-size: 20px;
+    padding: 2px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+tr {
+   height: 24px;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background-color:  #009879 ;
+    border: none;
+  }
+tr:nth-child(even){
+    background-color: #ffffff;
+}
+tr:nth-child(odd){
+    background-color:#dddddd;
+}
+tr:hover{
+    background-color: blanchedalmond;
+}
+th:hover{
+    background-color:  #00f5c4;
+    font-size: 28px;
+}
+.tt select,div{
+    border: 0;
+    background:#009879;
+    display: block;
+    margin: 6px auto;
+    text-align: center;
+    padding:5px 3px ;
+    color: rgb(0, 0, 0);
+}
+.tt select:hover{
+    background-color:  #00f5c4;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+button:hover{
+    background-color:  #00f5c4;
+    color: rgb(255, 255, 255);
+}
+button {
+  border: none;
+  text-decoration: none;
+    height: 35px;
+    width: 70px;
+    background-color: #009879;
+    color: rgb(63, 54, 54);
+    border: none;
+    font-size: 16px;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+  th:after {
+    content: "";
+    background: #ffffff;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  th:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
