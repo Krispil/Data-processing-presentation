@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sty.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align='center'>StocK MarkeT DatA TablE</h1>
+    <script src="sectors.js"></script>
+    <script src="dailyValues.js"></script>
+    <table id="main-tableID" class="main-tableClass">
+        <tr class="tr-info">
+            <th class="tt11" id="fname" onclick="SortcolomFname(p)"> name </th>
+            <th class="tt11" id="sname" onclick="SortcolomSname(p)"> mark</th>
+            <th class="tt11" id="number" onclick="SortcolomNumber(p)"> number</th>
+            <th class="tt11" id="anaf" onclick="SortcolomAnaf(p)"> industry</th>
+            <th class="tt11" id="gopen" onclick="SortcolomGopen(p)"> open gate</th>
+            <th class="tt11" id="gout" onclick="SortcolomGout(p)"> End gate</th>
+            <th class="tt11" id="modo" onclick="SortcolomModo(p)"> Percent</th>
+        </tr>
+        <tbody id="info_table">
+        </tbody>
+    </table>
+    <div class="tt" data-hover="safasf">
+        <seLect id="list" onchange="selctsort();">
+            <optgroup label="בחירה לפי שינוי"></optgroup>
+            <option value="ddi">ללא סינון</option>
+            <option value="allup">רק מניות שעלו</option>
+            <option value="alldown">רק מניות שירדו</option>
+            <option value="up10">שינוי הגדול מ-10%</option>
+            <optgroup label="בחירה לפי ענף"></optgroup>
+            <option value="ddi">ללא סינון</option>
+            <option value="anaf">בריאות</option>
+            <option value="anaf">צריכה בסיסית</option>
+            <option value="anaf">נדלן</option>
+            <option value="anaf">צריכה מחזורית</option>
+            <option value="anaf">פיננסים</option>
+            <option value="anaf">טכנולוגיה</option>
+            <option value="anaf">אנרגיה</option>
+        </seLect>
+        <div id="pagesbutton2"></div>
+        <div id="pagesbutton"></div>
+    </div>
+    <script src="jsmain.js"></script>
+</body>
+
+</html>
