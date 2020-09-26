@@ -1,6 +1,4 @@
-//============================
-//מגישים גל קריספיל,שי סויסה 
-//============================
+
 
 var dis = true; var p; var ind = 0; var newarry = []; var newarryBup = newarry;
 function newshareValue() {//הוספת ענף למשתנה שאר ווליו 
