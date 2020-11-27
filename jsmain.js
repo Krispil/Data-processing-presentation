@@ -1,7 +1,9 @@
-
+//============================
+//מגישים גל קריספיל,שי סויסה 
+//============================
 
 var dis = true; var p; var ind = 0; var newarry = []; var newarryBup = newarry;
-function newshareValue() {
+function newshareValue() {//הוספת ענף למשתנה שאר ווליו 
     for (var key1 in shareValue) {
         var x = findPercentInt(shareValue[key1][2], shareValue[key1][3]);
         shareValue[key1].push(x);
@@ -12,14 +14,14 @@ function newshareValue() {
     }
 }
 
-function findsector(x) {
+function findsector(x) {//מציאת  ענף תעסוקה 
     for (var y in sectors)
         if (y == x)
             return x;
     return "no sector";
 } newshareValue();
 
-function newarryofopj() {
+function newarryofopj() {//יצירת מערך של אובייקטים בשביל שימוש נכון ונוח בפונקצית סורט של המערכת 
     for (var k in shareValue) {
         var objz = {
             number: k,
@@ -34,14 +36,14 @@ function newarryofopj() {
     }
 } newarryofopj();
 
-function findPercentInt(x, y) {
+function findPercentInt(x, y) {//מציאת אחוז שינוי על ידי שער פתיחה ויציאה 
     var mod = (y - x) / x;
     mod = mod * 100;
     return mod.toFixed(2);
 }
 
 //---------------------------------------------------------------------------
-function shwotable(arry, ind) {
+function shwotable(arry, ind) {//הצגת טבלה לפי מערך ואינדקס מתקבלים
     var l = ind + 10;
     var tablemain = "";
     for (var k = 0; k < arry.length; k++) {
@@ -74,15 +76,15 @@ function shwotable(arry, ind) {
             tablemain += `<td></td>`;
         }
     }
-    AddButtonByPages(arry);
-    gopage2(arry, ind);
+    AddButtonByPages(arry);//הצגת כפתורים לדפים
+    gopage2(arry, ind);//הדף הבא הדף הקודם
     document.getElementById("info_table").innerHTML = tablemain;
-} shwotable(newarry, 0);
+} shwotable(newarry, 0);//הצגת טבלה ראשונית בתוכנית ויחידה
 //-------------------------------------------------------------------------
 
 //=========================================================================
-
-function SortcolomNumber(){
+//מיונים לפי לחיצה על עמודה 
+function SortcolomNumber() {//מיון לפי מספר מניה
     ThArrow();
     if (dis) {
         newarry.sort((a, b) => (Number(a.number) < Number(b.number)) ? 1 : -1);
@@ -92,7 +94,7 @@ function SortcolomNumber(){
         dis = true; StyleTHtrue('number', 'number');
     } shwotable(newarry, ind);
 }
-function SortcolomAnaf() {
+function SortcolomAnaf() {//מיון לפי ענף
     ThArrow();
     if (dis) {
         newarry.sort((a, b) => (a.anaf < b.anaf) ? 1 : -1);
@@ -102,7 +104,7 @@ function SortcolomAnaf() {
         dis = true; StyleTHtrue('anaf', 'industry');
     } shwotable(newarry, ind); console.log(ind);
 }
-function SortcolomFname() {
+function SortcolomFname() {//מיון לפי שם מלא
     ThArrow();
     if (dis) {
         newarry.sort((a, b) => (a.fullname < b.fullname) ? 1 : -1);
@@ -112,7 +114,7 @@ function SortcolomFname() {
         dis = true; StyleTHtrue('fname', 'name');
     } shwotable(newarry, ind);
 }
-function SortcolomSname() {
+function SortcolomSname() {//מיון לפי שם מקוצר 
     ThArrow();
     if (dis) {
         newarry.sort((a, b) => (a.shortname < b.shortname) ? 1 : -1);
@@ -122,7 +124,7 @@ function SortcolomSname() {
         dis = true; StyleTHtrue('sname', 'mark');
     } shwotable(newarry, ind);
 }
-function SortcolomGopen() {
+function SortcolomGopen() {//מיון לפי שער פתיחה 
     ThArrow();
     if (dis) {
         newarry.sort((a, b) => (Number(a.Gopen) < Number(b.Gopen)) ? 1 : -1);
@@ -132,7 +134,7 @@ function SortcolomGopen() {
         dis = true; StyleTHtrue('gopen', 'open gate');
     } shwotable(newarry, ind);
 }
-function SortcolomGout() {
+function SortcolomGout() {//מיון לפי שער סגירה 
     ThArrow();
     if (dis) {
         newarry.sort((a, b) => (Number(a.Gout) < Number(b.Gout)) ? 1 : -1);
@@ -142,7 +144,7 @@ function SortcolomGout() {
         dis = true; StyleTHtrue('gout', 'End gate');
     } shwotable(newarry, ind);
 }
-function SortcolomModo() {
+function SortcolomModo() {//מיון לפי שינוי באוחזים
     ThArrow();
     console.log(ind);
     if (dis) {
@@ -154,17 +156,19 @@ function SortcolomModo() {
     } shwotable(newarry, ind);
 }
 //==================================================================================
-function StyleTHfalse(x, y) {
+
+//---------------------------------------- דאגה לעיצוב בעת מיון לפי עמודה 
+function StyleTHfalse(x, y) {//העמודה שלפיה ממוינת הטבלה מקבלת עיצוב שונה על מנת להבדיל
     document.getElementById(x).innerHTML = `${y} &#9650`;
     document.getElementById(x).style.color = "white";
 }
 
-function StyleTHtrue(x, y) {
+function StyleTHtrue(x, y) {//העמודה שלפיה ממוינת הטבלה מקבלת עיצוב שונה על מנת להבדיל
     document.getElementById(x).innerHTML = `${y} &#9660`;
     document.getElementById(x).style.color = "white";
 }
 
-function ThArrow() {
+function ThArrow() {//חידוש הכותרות על מנת להוריד את מופע החץ היורד ועולה 
     document.getElementById('fname').innerHTML = "name"; document.getElementById('fname').style.color = "black";
     document.getElementById('sname').innerHTML = "mark"; document.getElementById('sname').style.color = "black";
     document.getElementById('number').innerHTML = "number"; document.getElementById('number').style.color = "black";
@@ -177,8 +181,8 @@ function ThArrow() {
 
 
 
-
-function AddButtonByPages(arry) {
+//-------------------------------------------------------------- עימוד
+function AddButtonByPages(arry) {//יצרית כפתורים לדפים כל דף 10 שורות   `1
     var btpage = "";
     var sizepage2 = arry.length;
     p = 1;
@@ -195,7 +199,7 @@ function AddButtonByPages(arry) {
     document.getElementById("pagesbutton").innerHTML = btpage;
 }
 
-function gopage1(p) {
+function gopage1(p) {//מציג טבלה מתאימה לפי מספר הכפתור 
     if (p == 1) {
         shwotable(newarry, 0);
     }
@@ -206,7 +210,7 @@ function gopage1(p) {
     }
 }
 
-function gopage2(arry, ind) {
+function gopage2(arry, ind) {//יוצר כפתורים לדף הבא ולדף הקודם 
     var btpage2 = "";
     var sizearry = arry.length - 1;
     var x = sizearry - ind;
@@ -225,23 +229,23 @@ function gopage2(arry, ind) {
     else btpage2 += `<p>Page: ${ind / 10}`;
     document.getElementById("pagesbutton2").innerHTML = btpage2;
 }
-function gopageN(x) {
+function gopageN(x) {//הפעלת כפתור הבא בתור
     shwotable(newarry, x + 10);
 }
-function gopageP(x) {
+function gopageP(x) {//הפעלת כפתור הקודם
     shwotable(newarry, x - 10);
 }
 //--------------------------------------------------------------
 
 
 //----------------------------------sort by select change
-function selctsort() {
-   
+function selctsort() {//משתנה על ידי אינדקס הבחירה הנוכחי על ידי שימוש בערך שלו 
+    //ולפי הערך אנו שולחים נתונים חדשים לפונקצית הצגת הטבלה
     ThArrow(); ind = 0;
     var x = document.getElementById("list");
     var i = x.selectedIndex;
     var test = x.options[i].value;
-    if (test == "allup") {
+    if (test == "allup") {//רק מניות שעלו
         var newarryforsort = []; newarry = newarryBup;
         for (var x = 0; x < newarry.length; x++) {
             if (newarry[x].modo > 0) {
@@ -250,7 +254,7 @@ function selctsort() {
         }
         newarry = newarryforsort; shwotable(newarry, 0);
     }
-    else if (test == "alldown") {
+    else if (test == "alldown") {//רק מניות שירדו
         var newarryforsort = []; newarry = newarryBup;
         for (var x = 0; x < newarry.length; x++) {
             if (newarry[x].modo < 0) {
@@ -259,7 +263,7 @@ function selctsort() {
         }
         newarry = newarryforsort; shwotable(newarry, 0);
     }
-    else if (test == "up10") {
+    else if (test == "up10") {//שינוי הגדול מ10אחוז
         var newarryforsort = []; newarry = newarryBup;
         for (var x = 0; x < newarry.length; x++) {
             if (newarry[x].modo >= 10 || newarry[x].modo <= -10) {
@@ -268,11 +272,11 @@ function selctsort() {
         }
         newarry = newarryforsort; shwotable(newarry, 0);
     }
-    else if (test == "ddi") {
+    else if (test == "ddi") {//ברירת מחדל הצגת כל הנתונים
         newarry = newarryBup;
         shwotable(newarry, 0);
     }
-    else if (test == "anaf") {
+    else if (test == "anaf") {//לפי ענף
         var newarryforsort = []; newarry = newarryBup;
         var x = document.getElementById("list");
         var i = x.selectedIndex;
