@@ -1,3 +1,3 @@
 # Data-processing-presentation
-#https://krispil.github.io/Data-processing-presentation/index.html
+Taking information and arranging in a table that knows how to manage sort and reduce and map by choice
 
